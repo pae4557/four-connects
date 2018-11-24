@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Connect Four</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="c4">
+          <h4>{{header}}</h4>
+          <div v-for="array in board">
+            <span v-for="item in array" class="slot" :class="[isRed(item) ? 'red-slot' : 'black-slot']">{{item}}</span>
+          </div>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var c4 = new Vue({
+                el: '#c4',
+                data: {
+                    state: 'default',
+                    header: 'Connect Four',
+                    newItem: '',
+                    board: [[" ", " ", " ", " ", " ", " ", " "],
+                            [" ", " ", " ", " ", " ", " ", " "],
+                            [" ", " ", " ", " ", " ", " ", " "],
+                            [" ", " ", " ", " ", " ", " ", " "],
+                            [" ", " ", " ", " ", " ", " ", " "],
+                            [" ", " ", " ", " ", " ", " ", " "],
+                    ]
+                },
+                computed: {
+                },
+                methods: {
+                  isRed: function(item) {
+                    if (item == " "){
+                      return true } else {
+                      return false;}
+                  }
+                }
+            });
+        </script>
+    </body>
+</html>
